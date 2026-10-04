@@ -42,6 +42,33 @@
     <div><a href="clue6.html"><button>Clue 6</button></a></div>
     <div><a href="clue7.html"><button>Clue 7</button></a></div>
     <div><a href="clue8.html"><button>Clue 8</button></a></div>
+    <script>
+  const jawabanBenar = "pancasil";   // 
+  const kotak = document.querySelectorAll('.kotak');
+
+  function cek() {
+    let hasil = "";
+    kotak.forEach(function (k) {
+      hasil += k.value;
+    });
+
+    if (hasil.toUpperCase() === jawabanBenar) {
+      window.location.href = "selamat.html";
+    }
+  }
+
+  kotak.forEach(function (k, i) {
+    
+    k.value = localStorage.getItem('huruf' + i) || '';
+
+    k.addEventListener('input', function () {
+      localStorage.setItem('huruf' + i, k.value);
+      cek();
+    });
+  });
+
+  cek();
+</script>
 </body>
 
 </html>
