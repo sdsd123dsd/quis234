@@ -43,7 +43,8 @@
     <div><a href="clue7.html"><button>Clue 7</button></a></div>
     <div><a href="clue8.html"><button>Clue 8</button></a></div>
     <script>
-  const jawabanBenar = "pancasil";   // 
+ <script>
+  const jawabanBenar = "PANCASIL";
   const kotak = document.querySelectorAll('.kotak');
 
   function cek() {
@@ -53,12 +54,12 @@
     });
 
     if (hasil.toUpperCase() === jawabanBenar.toUpperCase()) {
+      localStorage.clear();                    
       window.location.href = "selamat.html";
     }
   }
 
   kotak.forEach(function (k, i) {
-    
     k.value = localStorage.getItem('huruf' + i) || '';
 
     k.addEventListener('input', function () {
@@ -66,8 +67,6 @@
       cek();
     });
   });
-
-  cek();
 </script>
 </body>
 
